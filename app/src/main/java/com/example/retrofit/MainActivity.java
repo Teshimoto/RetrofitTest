@@ -1,12 +1,5 @@
 package com.example.retrofit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -14,10 +7,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.retrofit.POJO.User;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.retrofit.databinding.ListItemBinding;
+import com.example.retrofit.pojo.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,12 +116,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-            return new ViewHolder(mInflater.inflate(android.R.layout.simple_list_item_1, parent, false));
+            ListItemBinding binding = DataBindingUtil.inflate(mInflater, R.layout.list_item, parent, false);
+            return new ViewHolder(binding.getRoot());
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
-            holder.titleTextView.setText(mUsers.get(position).userName);
+            holder.binding.setUser(mUsers.get(position));
         }
 
         @Override
@@ -135,12 +137,11 @@ public class MainActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            public final TextView titleTextView;
+            ListItemBinding binding;
 
-            public ViewHolder(final View itemView) {
-                super(itemView);
-
-                titleTextView = itemView.findViewById(android.R.id.text1);
+            public ViewHolder(final View view) {
+                super(view);
+                this.binding = DataBindingUtil.bind(view);
             }
         }
     }

@@ -1,8 +1,6 @@
-package com.example.retrofit.POJO;
+package com.example.retrofit.pojo;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class Address {
 

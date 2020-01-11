@@ -1,266 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_column="2"
-    android:layout_marginTop="24dp"
-    app:cardBackgroundColor="@color/colorCard"
-    app:cardCornerRadius="4dp">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="User"
+            type="com.example.retrofit.pojo.User" />
+    </data>
 
-    <GridLayout
+    <androidx.cardview.widget.CardView
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_column="2"
-        android:layout_marginTop="24dp">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="8dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/colorCard" >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Id: "
-            android:layout_gravity="fill_horizontal"
-            android:layout_row="0"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/user_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            tools:text="1"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_columnSpan="2"/>
+            android:columnCount="2">
 
-        <!-- Name   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name: "
-            android:layout_row="1"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Leanne Graham"
-            android:layout_row="1"
-            android:layout_column="1"/>
+            <TextView
+                android:text="ID: "
+                android:layout_row="0"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:layout_row="0"
+                android:layout_column="1"
+                android:text="@{String.valueOf(User.id)}"
+                tools:text="1"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Username   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username: "
-            android:layout_row="2"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Bret"
-            android:layout_row="2"
-            android:layout_column="1"/>
+            <!-- Name   -->
+            <TextView
+                android:text="Name: "
+                android:layout_row="1"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:layout_row="1"
+                android:layout_column="1"
+                android:text="@{User.name}"
+                tools:text="Leanne Graham"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Email   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username: "
-            android:layout_row="3"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Sincere@april.biz"
-            android:layout_row="3"
-            android:layout_column="1"/>
+            <!-- Username   -->
+            <TextView
+                android:text="Username: "
+                android:layout_row="2"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:text="@{User.userName}"
+                tools:text="Bret"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Address   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Address: "
-            android:layout_row="4"
-            android:layout_column="0"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="street:"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/address_street"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Kulas Light"
-            android:layout_row="5"
-            android:layout_column="1"/>
+            <!-- Email   -->
+            <TextView
+                android:text="Email: "
+                android:layout_row="3"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:layout_row="3"
+                android:layout_column="1"
+                android:text="@{User.email}"
+                tools:text="Sincere@april.biz"
+                style="@style/TextView.Secondary"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="suite:"
-            android:layout_row="6"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/address_suite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Apt. 556"
-            android:layout_row="6"
-            android:layout_column="1"/>
+            <!-- Address   -->
+            <TextView
+                android:text="Address: "
+                android:layout_row="4"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:text="street:"
+                android:layout_row="5"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="5"
+                android:layout_column="1"
+                android:text="@{User.addresses.street}"
+                tools:text="Kulas Light"
+                style="@style/TextView.Secondary"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="city:"
-            android:layout_row="7"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/address_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Gwenborough"
-            android:layout_row="7"
-            android:layout_column="1"/>
+            <TextView
+                android:text="suite:"
+                android:layout_row="6"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="6"
+                android:layout_column="1"
+                android:text="@{User.addresses.suite}"
+                tools:text="Apt. 556"
+                style="@style/TextView.Secondary"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="zipcode:"
-            android:layout_row="8"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/address_zipcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="92998-3874"
-            android:layout_row="8"
-            android:layout_column="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="geo:"
-            android:layout_row="9"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lat"
-            android:layout_row="10"
-            android:layout_column="0"
-            android:layout_marginLeft="16dp"/>
-        <TextView
-            android:id="@+id/geo_lat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-37.3159"
-            android:layout_row="10"
-            android:layout_column="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lng"
-            android:layout_row="11"
-            android:layout_column="0"
-            android:layout_marginLeft="16dp"/>
-        <TextView
-            android:id="@+id/geo_lng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="81.1496"
-            android:layout_row="11"
-            android:layout_column="1"/>
+            <TextView
+                android:text="city:"
+                android:layout_row="7"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="7"
+                android:layout_column="1"
+                android:text="@{User.addresses.city}"
+                tools:text="Gwenborough"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Phone   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone: "
-            android:layout_row="12"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="1-770-736-8031 x56442"
-            android:layout_row="12"
-            android:layout_column="1"/>
+            <TextView
+                android:text="zipcode:"
+                android:layout_row="8"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="8"
+                android:layout_column="1"
+                android:text="@{User.addresses.zipcode}"
+                tools:text="92998-3874"
+                style="@style/TextView.Secondary"/>
+            <TextView
+                android:text="geo:"
+                android:layout_row="9"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:text="lat"
+                android:layout_row="10"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner2"/>
+            <TextView
+                android:layout_row="10"
+                android:layout_column="1"
+                android:text="@{User.addresses.geo.lat}"
+                tools:text="-37.3159"
+                style="@style/TextView.Secondary"/>
+            <TextView
+                android:text="lng"
+                android:layout_row="11"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner2"/>
+            <TextView
+                android:layout_row="11"
+                android:layout_column="1"
+                android:text="@{User.addresses.geo.lng}"
+                tools:text="81.1496"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Website   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Website: "
-            android:layout_row="13"
-            android:layout_column="0"/>
-        <TextView
-            android:id="@+id/website"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="hildegard.org"
-            android:layout_row="13"
-            android:layout_column="1"/>
+            <!-- Phone   -->
+            <TextView
+                android:text="Phone: "
+                android:layout_row="12"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:layout_row="12"
+                android:layout_column="1"
+                android:text="@{User.phone}"
+                tools:text="1-770-736-8031 x56442"
+                style="@style/TextView.Secondary"/>
 
-        <!-- Company   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Company: "
-            android:layout_row="14"
-            android:layout_column="0"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name:"
-            android:layout_row="15"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/company_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Romaguera-Crona"
-            android:layout_row="15"
-            android:layout_column="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name:"
-            android:layout_row="16"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/company_catch_phrase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Multi-layered client-server neural-net"
-            android:layout_row="16"
-            android:layout_column="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="bs:"
-            android:layout_row="17"
-            android:layout_column="0"
-            android:layout_marginLeft="8dp"/>
-        <TextView
-            android:id="@+id/company_bs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="harness real-time e-markets"
-            android:layout_row="17"
-            android:layout_column="1"/>
-    </GridLayout>
+            <!-- Website   -->
+            <TextView
+                android:text="Website: "
+                android:layout_row="13"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:layout_row="13"
+                android:layout_column="1"
+                android:text="@{User.webSite}"
+                tools:text="hildegard.org"
+                style="@style/TextView.Secondary"/>
 
-</androidx.cardview.widget.CardView>
+            <!-- Company   -->
+            <TextView
+                android:text="Company: "
+                android:layout_row="14"
+                android:layout_column="0"
+                style="@style/TextView.Primary"/>
+            <TextView
+                android:text="name:"
+                android:layout_row="15"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="15"
+                android:layout_column="1"
+                android:text="@{User.company.name}"
+                tools:text="Romaguera-Crona"
+                style="@style/TextView.Secondary"/>
+            <TextView
+                android:text="catch phrase:"
+                android:layout_row="16"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="16"
+                android:layout_column="1"
+                android:text="@{User.company.catchPhrase}"
+                tools:text="Multi-layered client-server neural-net"
+                style="@style/TextView.Secondary"/>
+            <TextView
+                android:text="bs:"
+                android:layout_row="17"
+                android:layout_column="0"
+                style="@style/TextView.Primary.Inner1"/>
+            <TextView
+                android:layout_row="17"
+                android:layout_column="1"
+                android:text="@{User.company.bs}"
+                tools:text="harness real-time e-markets"
+                style="@style/TextView.Secondary"/>
+        </GridLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,6 +1,6 @@
 package com.example.retrofit;
 
-import com.example.retrofit.POJO.User;
+import com.example.retrofit.pojo.User;
 
 import java.util.List;
 

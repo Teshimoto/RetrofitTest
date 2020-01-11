@@ -1,8 +1,6 @@
-package com.example.retrofit.POJO;
+package com.example.retrofit.pojo;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class User {
 
@@ -28,9 +26,9 @@ public class User {
 	public String webSite;
 
 	@SerializedName("company")
-	public Company companies;
+	public Company company;
 
-	public User(long id, String name, String userName, String email, Address addresses, String phone, String webSite, Company companies) {
+	public User(long id, String name, String userName, String email, Address addresses, String phone, String webSite, Company company) {
 		this.id = id;
 		this.name = name;
 		this.userName = userName;
@@ -38,6 +36,6 @@ public class User {
 		this.addresses = addresses;
 		this.phone = phone;
 		this.webSite = webSite;
-		this.companies = companies;
+		this.company = company;
 	}
 }
